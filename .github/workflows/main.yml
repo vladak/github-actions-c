@@ -16,6 +16,10 @@ jobs:
     - name: Checkout master branch
       uses: actions/checkout@v2
     - name: Print compiler version
-      run: cc --version
+      env:
+        CC: ${{ matrix.compiler }}
+      run: ${CC} --version
     - name: Compile
-      run: cc main.c
+      env:
+        CC: ${{ matrix.compiler }}
+      run: ${CC} main.c
