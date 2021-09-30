@@ -15,5 +15,7 @@ jobs:
     steps:
     - name: Checkout master branch
       uses: actions/checkout@v2
+    - name: Print compiler version
+      run: cc --version
     - name: Compile
       run: cc main.c
